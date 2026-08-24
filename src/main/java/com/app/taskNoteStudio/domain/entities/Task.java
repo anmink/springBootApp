@@ -1,12 +1,14 @@
 package com.app.taskNoteStudio.domain.entities;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
 @Entity
+@Builder
 @Table(name = "tasks")
 public class Task {
 
