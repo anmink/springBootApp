@@ -90,8 +90,8 @@ public class TaskRepositoryTest {
                 .build();
 
         //Act
-        taskRepository.save(task);
-        Optional<Task> taskList = taskRepository.findById(task.getId());
+        Task savedTask = taskRepository.save(task);
+        Optional<Task> taskList = taskRepository.findById(savedTask.getId());
 
         // Assert
         Assertions.assertThat(taskList).isNotNull();

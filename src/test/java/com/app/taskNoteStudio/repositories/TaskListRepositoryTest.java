@@ -30,6 +30,7 @@ public class TaskListRepositoryTest {
         TaskList savedTaskList = taskListRepository.save(taskList);
 
         Assertions.assertThat(savedTaskList.getId()).isNotNull();
+        Assertions.assertThat(savedTaskList.getId()).isNotNull();
     }
 
     @Test
@@ -71,6 +72,7 @@ public class TaskListRepositoryTest {
         List<TaskList> taskList = taskListRepository.findAll();
 
         Assertions.assertThat(taskList).isNotNull();
+        Assertions.assertThat(taskList.size()).isEqualTo(2);
     }
 
     @Test
@@ -81,11 +83,12 @@ public class TaskListRepositoryTest {
                 .created(LocalDateTime.parse("2026-08-24T00:00:00"))
                 .updated(LocalDateTime.parse("2026-08-24T00:00:00"))
                 .build();
-        taskListRepository.save(taskList);
+        TaskList savedTaskList = taskListRepository.save(taskList);
 
-        Optional<TaskList> tasklistList = taskListRepository.findById(taskList.getId());
+        Optional<TaskList> foundTaskList = taskListRepository.findById(savedTaskList.getId());
 
-        Assertions.assertThat(tasklistList).isNotNull();
+        Assertions.assertThat(foundTaskList).isPresent();
+        Assertions.assertThat(foundTaskList.get().getTitle()).isEqualTo("Test Tasklist 1");
     }
 
     @Test
@@ -96,11 +99,11 @@ public class TaskListRepositoryTest {
                 .created(LocalDateTime.parse("2026-08-24T00:00:00"))
                 .updated(LocalDateTime.parse("2026-08-24T00:00:00"))
                 .build();
-        taskListRepository.save(taskList);
+        TaskList savedTaskList = taskListRepository.save(taskList);
 
-        taskListRepository.deleteById(taskList.getId());
+        taskListRepository.deleteById(savedTaskList.getId());
 
-        Optional<TaskList> deletedTaskList = taskListRepository.findById(taskList.getId());
+        Optional<TaskList> deletedTaskList = taskListRepository.findById(savedTaskList.getId());
 
         Assertions.assertThat(deletedTaskList).isNotPresent();
     }
