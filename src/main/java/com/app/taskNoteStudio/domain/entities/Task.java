@@ -8,7 +8,6 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Builder
 @Table(name = "tasks")
 public class Task {
 
@@ -45,6 +44,7 @@ public class Task {
     public Task() {
     }
 
+    @Builder
     public Task(UUID id, String title, String description, LocalDateTime dueDate, TaskStatus status, TaskPriority priority, TaskList taskList, LocalDateTime created, LocalDateTime updated) {
         this.id = id;
         this.title = title;

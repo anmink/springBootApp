@@ -9,7 +9,6 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Builder
 @Table(name = "task_lists")
 public class TaskList {
 
@@ -36,6 +35,7 @@ public class TaskList {
     public TaskList() {
     }
 
+    @Builder
     public TaskList(UUID id, String title, String description, List<Task> tasks, LocalDateTime created, LocalDateTime updated) {
         this.id = id;
         this.title = title;
