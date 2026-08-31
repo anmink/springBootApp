@@ -7,6 +7,7 @@ import com.app.taskNoteStudio.domain.entities.TaskStatus;
 import com.app.taskNoteStudio.repositories.TaskListRepository;
 import com.app.taskNoteStudio.repositories.TaskRepository;
 import com.app.taskNoteStudio.services.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ public class TaskServiceImpl implements TaskService {
     private final TaskRepository taskRepository;
     private final TaskListRepository taskListRepository;
 
+    @Autowired
     public TaskServiceImpl(TaskRepository taskRepository, TaskListRepository taskListRepository) {
         this.taskRepository = taskRepository;
         this.taskListRepository = taskListRepository;
