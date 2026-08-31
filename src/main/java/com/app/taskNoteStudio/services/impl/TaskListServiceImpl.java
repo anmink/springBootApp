@@ -12,11 +12,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class TastListServiceImpl implements TaskListService {
+public class TaskListServiceImpl implements TaskListService {
 
     private final TaskListRepository taskListRepository;
 
-    public TastListServiceImpl(TaskListRepository taskListRepository) {
+    public TaskListServiceImpl(TaskListRepository taskListRepository) {
         this.taskListRepository = taskListRepository;
     }
 
