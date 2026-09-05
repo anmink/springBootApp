@@ -3,8 +3,10 @@ package com.app.taskNoteStudio.mappers.impl;
 import com.app.taskNoteStudio.domain.dto.TaskDto;
 import com.app.taskNoteStudio.domain.entities.Task;
 import com.app.taskNoteStudio.mappers.TaskMapper;
+import lombok.Builder;
 import org.springframework.stereotype.Component;
 
+@Builder
 @Component
 public class TaskMapperImpl implements TaskMapper {
 
