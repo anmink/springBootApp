@@ -60,6 +60,7 @@ public class TaskControllerTests {
 
     }
 
+    @Test
     public void TaskController_CreateTask_ReturnCreatedTaskDto() throws Exception {
         UUID taskListId = UUID.randomUUID();
         UUID taskId = UUID.randomUUID();
@@ -81,6 +82,7 @@ public class TaskControllerTests {
                 .andExpect(jsonPath("$.title").value("Aufgabe 1"));
     }
 
+    @Test
     public void TaskController_GetTask_ReturnFoundTaskDto() throws Exception {
         UUID taskListId = UUID.randomUUID();
         UUID taskId = UUID.randomUUID();
@@ -99,6 +101,7 @@ public class TaskControllerTests {
                 .andExpect(jsonPath("$.title").value("Aufgabe 1"));
     }
 
+    @Test
     public void TaskController_UpdateTask_ReturnUpdatedTaskDto() throws Exception {
         UUID taskListId = UUID.randomUUID();
         UUID taskId = UUID.randomUUID();
@@ -119,6 +122,7 @@ public class TaskControllerTests {
                 .andExpect(jsonPath("$.title").value("Aufgabe 1"));
     }
 
+    @Test
     public void TaskController_DeleteTask_ReturnOk() throws Exception {
         UUID taskListId = UUID.randomUUID();
         UUID taskId = UUID.randomUUID();
